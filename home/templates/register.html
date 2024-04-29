@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{page_name}}</title>
+    <link rel="stylesheet" href="../static/css/login.css" type="text/css">
+    <script src="../static/js/login.js"></script>
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="login-container">
+            <div class="circle circle-one"></div>
+            <div class="form-container">
+                <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png"
+                    alt="illustration" class="illustration" />
+                <h1 class="opacity">SIGN IN</h1>
+                <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" placeholder="First Name" name="first_name" value="">
+                    <input type="text" placeholder="Last Name" name="last_name" value="">
+                    <input type="text" placeholder="Username" name="username" value="">
+                    <input type="text" placeholder="E-Mail" name="email" value="">
+                    <input type="password" placeholder="Password" name="password1" value="">
+                    <input type="password" placeholder="Confirm Password" name="password2" value="">
+                    <input type="submit" class="opacity" value="Submit">
+                </form>
+                <div>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="register-forget opacity">
+                    <a href="{% url 'login' %}">LOGIN</a>
+                    <a href="{% url 'home' %}">HOME</a>
+                </div>
+
+            </div>
+            <div class="circle circle-two"></div>
+        </div>
+        <div class="theme-btn-container"></div>
+    </section>
+</body>
+
+</html>

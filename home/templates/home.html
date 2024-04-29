@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block start %}
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="slideshow-container">
+    {% for image in image_urls %}
+    <div class="mySlides fade">
+        <img src="{{ image }}">
+    </div>
+    {% endfor %}
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<div class="container-data">
+    <p class="heading">Welcome to Deco Design - Your Premier Interior Design Destination!</p>
+    <p class="data">
+        <br>
+        Transform your space into a masterpiece with Deco Design. We specialize in creating stunning interior designs
+        that perfectly reflect your style and personality. Whether you're looking to revamp your home or office, we've
+        got you covered.
+        At Deco Design, we understand that your space is a reflection of who you are. That's why our team of talented
+        designers works closely with you to bring your vision to life. From contemporary chic to timeless elegance, we
+        tailor every design to suit your taste and preferences.
+    </p>
+    <br>
+    <p class="heading">Why Choose Deco Design?</p>
+    <br>
+    <p class="data-points">
+    <ul>
+        <li>
+            <strong>Customized Designs:</strong> Our designs are tailored to your individual style and needs,
+            ensuring a unique and
+            personalized space that you'll love.
+        </li>
+        <li>
+            <strong>Expert Team:</strong> Our team of experienced designers is passionate about creating beautiful
+            interiors and delivering exceptional results.
+        </li>
+        <li>
+            <strong>Seamless Process:</strong> We make the design process easy and stress-free, guiding you through
+            every step from concept to completion.
+        </li>
+        <li>
+            <strong>Residential & Commercial:</strong> Whether it's your home or office, we have the expertise to
+            transform any space into something extraordinary.
+        </li>
+    </ul>
+    </p>
+    <br>
+    <p class="heading">Discover the Deco Design Difference:</p>
+    <br>
+    <p class="data">
+    <ul>
+        <li>
+            <strong>Inspiring Portfolio:</strong> Explore our portfolio to see examples of our work and get inspired for
+            your own project.
+        </li>
+        <li>
+            <strong>Exclusive Content:</strong> Register on our website to access exclusive design content, tips, and
+            trends to help you
+            make
+            informed decisions about your space.
+        </li>
+        <li>
+            <strong>Client Testimonials:</strong> Hear from our satisfied clients about their experience working with
+            Deco Design and the
+            incredible transformations we've achieved together.
+        </li>
+        <li>
+            <strong>Get in Touch:</strong> Ready to bring your dream design to life? Contact us today to schedule a
+            consultation and take
+            the
+            first step toward creating your perfect space.
+        </li>
+
+    </ul>
+    </p>
+    <br>
+    <p class="heading">Ready to Get Started?</p>
+    <br>
+    <p class="data">
+        Explore our portfolio to see examples of our work and get inspired. Then, register on our website to access
+        exclusive design content and connect with our team. Once you've found the perfect design, contact us to
+        bring it to life in your residential or commercial building.
+        Experience the difference with Deco Design. Let's create something beautiful together.
+    </p>
+
+</div>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+
+{% endblock %}

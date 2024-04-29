@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block start %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<center>
+    <h1><span class="typing-text">School Designs</span></h1>
+</center>
+
+<br>
+<br>
+
+<div class="grid-wrapper">
+    {% for image in image_urls %}
+    <div class="mySlides fade">
+        <img src="{{ image }}">
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<br>
+<br>
+
+<script>
+    window.onload = function () {
+        const typingText = document.querySelector('.typing-text');
+        const text = typingText.textContent;
+        typingText.textContent = '';
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < text.length) {
+                typingText.textContent += text[i];
+                i++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 50);
+    }
+</script>
+
+{% endblock %}
